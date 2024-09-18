@@ -1,0 +1,375 @@
+:root {
+    --primary-color: #2875d9;
+    --table-color: #333333;
+    --link-color: rgb(50, 50, 255);
+    --hr-bd-color: rgb(150, 150, 150);
+    --quote-color: rgb(150, 150, 150);
+    --quote-bd-color: rgb(200, 200, 200);
+    --code-bg-color: rgb(242, 242, 242);
+    --code-bd-color: rgb(200, 200, 200);
+}
+
+@font-face {
+    font-family: 'LM Roman';
+    src: url('tex/lmroman10-regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LM Roman';
+    src: url('tex/lmroman10-italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'LM Roman';
+    src: url('tex/lmroman10-bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LM Roman';
+    src: url('tex/lmroman10-bolditalic.otf') format('opentype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'LM Mono';
+    src: url('tex/lmmono10-regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LM Mono';
+    src: url('tex/lmmono10-italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'LM Mono';
+    src: url('tex/lmmono10-bold.otf') format('opentype');
+    font-weight: bold;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#write {
+    max-width: 914px;
+    text-align: left;
+    display: block;
+    margin: auto;
+
+    font-family: 'LM Roman';
+    font-size-adjust: 0.5;
+    line-height: 18pt;
+    word-spacing: 0px;
+
+    counter-reset: figure;
+}
+
+svg *{
+    font-family: 'LM Roman' !important;
+}
+
+/*****************
+ * Heading style *
+ *****************/
+
+h1 {
+    font-weight: normal;
+    line-height: 4rem;
+    margin: 0;
+    padding: 0px 30px;
+    text-align: center;
+    border-top: 0.5px solid #ccc;
+    border-bottom: 0.5px solid #ccc;
+}
+
+h2 {
+    font-weight: bold;
+    line-height: 3rem;
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+h4 {
+    font-weight: bold;
+}
+
+h5 {
+    font-weight: bold;
+    font-size: 1.125rem;
+}
+
+h6 {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+p {
+    font-size: 12pt;
+}
+
+/********************
+ * LaTeX / MathJax*
+ ********************/
+.mathjax-block {
+    font-size: 12pt;
+}
+
+/********************
+ * Table size style *
+ ********************/
+
+table {
+    padding: 0;
+    word-break: initial;
+}
+
+table tr,
+table td,
+table th {
+    margin: 0;
+}
+
+table tr {
+    padding: 0;
+}
+
+table th,
+table td {
+    padding: 6px 13px;
+}
+
+table thead {
+    font-weight: normal;
+}
+
+/************************
+ * Table border style 1 *
+ ************************/
+
+table tr {
+    border: none;
+}
+
+table td {
+    border-top: 0.5px solid var(--table-color);
+}
+
+table thead tr:last-child {
+    border-bottom: 1.5px solid var(--table-color);
+}
+
+table td,
+table th {
+    border-left: 1.5px solid var(--table-color);
+}
+
+table td:last-child,
+table th:last-child {
+    border-right: 1.5px solid var(--table-color);
+}
+
+
+/************************
+ * Table border style 2 *
+ ************************/
+table tr {
+    border: none;
+}
+
+table td {
+    border-top: 0.5px solid var(--table-color);
+}
+
+table tbody tr:last-child {
+    border-bottom: 1.5px solid var(--table-color);
+}
+
+table thead tr:first-child {
+    border-top: 1.5px solid var(--table-color);
+}
+
+table td:last-child,
+table th:last-child {
+    border-right: none;
+}
+
+table td:first-child,
+table th:first-child {
+    border-left: none;
+}
+
+/********************
+ * list items style *
+ ********************/
+.md-task-list-item>input {
+    position: absolute;
+    top: 0.1em;
+    transform: scale(1.2);
+    margin-left: -1.6em;
+}
+
+/******************************
+ * Unordered list items style *
+ ******************************/
+ul {
+    list-style-type: "• ";
+}
+
+ul ul {
+    list-style-type: "– ";
+}
+
+ul ul ul {
+    list-style-type: none;
+}
+
+ul ul ul>li::before {
+    content: "* ";
+    position: absolute;
+    top: 0.2em;
+    left: -1.2em;
+}
+
+ul ul ul ul {
+    list-style-type: "· ";
+}
+
+ul ul ul ul>li::before {
+    content: none;
+}
+
+/****************************
+ * ordered list items style *
+ ****************************/
+ol {
+    list-style-type: decimal;
+}
+
+ol ol {
+    counter-reset: item;
+    list-style-type: none;
+}
+
+ol ol>li {
+    counter-increment: item;
+}
+
+ol ol>li::before {
+    content: "("counter(item, lower-latin)") ";
+    position: absolute;
+    left: -2em;
+}
+
+ol ol ol {
+    list-style-type: lower-roman;
+}
+
+ol ol ol>li::before {
+    content: none;
+}
+
+ol ol ol ol {
+    list-style-type: upper-latin;
+}
+
+ol ol ol ol>li::before {
+    content: none;
+}
+
+/*************************
+ * horizontal line style *
+ *************************/
+hr {
+    border: none;
+    border-top: 1px solid var(--hr-bd-color);
+}
+
+/**************
+ * link style *
+ **************/
+a {
+    color: var(--link-color);
+}
+
+/********************
+ * blockquote style *
+ ********************/
+blockquote {
+    border-left: 4px solid var(--quote-bd-color);
+    color: var(--quote-color);
+}
+
+blockquote,
+.md-alert {
+    margin: 10px 2em !important;
+    padding: 0 20px !important;
+}
+
+blockquote blockquote {
+    padding-right: 0;
+}
+
+/************************
+ * Figure / Image style *
+ ************************/
+figure,
+figure img {
+    text-align: center;
+    width: auto;
+}
+
+figure figcaption {
+    counter-increment: figure;
+    text-align: left;
+    padding: 0 10%;
+    margin: 20px 10px;
+}
+
+figure figcaption::before {
+    content: "Figure "counter(figure) ". ";
+    font-weight: bold;
+}
+
+/********************
+ * Code block style *
+ ********************/
+
+code,
+.md-fences,
+.sourceCode {
+    background: var(--code-bg-color);
+    border: 1px solid var(--code-bd-color);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
