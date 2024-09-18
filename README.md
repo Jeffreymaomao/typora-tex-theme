@@ -11,3 +11,8 @@ This repo is designed to emulate the appearance of the default LaTeX article sty
 3. Move/Drag these two things into the Typora themes folder. (see: https://theme.typora.io/doc/Install-Theme/)
 4. Reopen the Typora, then choose the theme $\to$ tex.
 5. You will get a nice LaTeX-like Typora. (I think...)
+
+### LICENSE
+
+[MIT license](./LICENSE)
+
