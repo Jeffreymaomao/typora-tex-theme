@@ -69,16 +69,22 @@ body,
     display: block;
     margin: auto;
 
-    font-family: 'LM Roman';
     font-size-adjust: 0.5;
     line-height: 18pt;
     word-spacing: 0px;
 
     counter-reset: figure;
 }
-
+body {
+    font-family: 'LM Roman', '標楷體', '標楷體-繁', 'BiauKai', 'STKaiti';
+}
 svg *{
     font-family: 'LM Roman' !important;
+}
+.CodeMirror-lines {
+
+    font-family: "Lucida Console",Consolas,"Courier",monospace;
+    font-size: 11pt;
 }
 
 /*****************
